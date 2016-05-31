@@ -1,83 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640">
-
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
+    <meta charset="UTF-8">
     <title>Análisis Cluster by xvilan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
-    <a id="forkme_banner" href="https://github.com/xvilan/clusterhelp">View on GitHub</a>
-    <div class="shell">
+    <section class="page-header">
+      <h1 class="project-name">Análisis Cluster</h1>
+      <h2 class="project-tagline">Página de Ayuda</h2>
+      <a href="https://github.com/xvilan/clusterhelp" class="btn">View on GitHub</a>
+      <a href="https://github.com/xvilan/clusterhelp/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/xvilan/clusterhelp/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>Análisis Cluster</h1>
-            <h2>Página de Ayuda</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
-
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/xvilan/clusterhelp/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/xvilan/clusterhelp/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
-
-
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
-        <h3>
+    <section class="main-content">
+      <h3>
 <a id="página-de-ayuda-para-la-herramienta-vba-de-análisis-clúster" class="anchor" href="#p%C3%A1gina-de-ayuda-para-la-herramienta-vba-de-an%C3%A1lisis-cl%C3%BAster" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Página de Ayuda para la Herramienta VBA de Análisis Clúster.</h3>
 
-<p>Esta es la pagina de ayuda para utilizar la herramienta Cluster Analyst, proyecto de VBA desarrollado en la asignatura de Herramientas de Cálculo Actuarial del Máster de Ciencias Actuariales y Financieras de la UC3M.</p>
+<p>Análisis cluster es una aplicación informática desarrollada en VBA 6.0 y VBA 7.1 para la asignatura de Herramientas de Cálculo Actuarial. La aplicación tiene finalidad educativa en el ámbito académico de la UCIII de Madrid.
+Se utiliza para realizar una segmentación y división de datos en base a sus características homogéneas y heterogéneas, para lo cual aplica funciones de clusterización propias del análisis multivariante. 
+La aplicación se ejecuta en entorno MS Excel y cuenta con tres partes diferenciadas en su funcionamiento: Un módulo de lectura de datos, un módulo de cálculo y un módulo de resultados.  El acceso a la interfaz de la aplicación puede realizarse de dos modos. Mediante el botón “formulario” situado en la hoja “pruebas” o mediante el menú/máster CAF/ Cluster 1.1.</p>
+
+<p><img src="https://www.dropbox.com/s/g9xakvgsbxlgp2l/1.png?dl=0" alt=""></p>
+
+<p>La aplicación cuenta con un único formulario desde el cual pueden realizarse todas las opciones de segmentación desarrolladas. 
+Una vez abierto el formulario en primer lugar es necesario posicionarse sobre el control “refedit” para acceder a la lectura de los datos. Una vez minimizada la ventana de formulario se selecciona el rango deseado y se vuelve a presionar el control de “refedit” o enter. La aplicación tiene preparado el rango para trabajar.</p>
+
+<p><img src="https://www.dropbox.com/s/86rvp7w5vb9ey58/2.png?dl=0" alt=""></p>
+
+<p>A continuación debe seleccionarse algunos parámetros básicos de la estructura de los datos, como la posibilidad de que existan nombres en los la cabecera de las columnas (variables) y/o nombres en la primera columna (identificadores)
+El módulo de lectura de datos permite leer un rango de información en formato Excel (xls,xlsx) y transformarlo a una matriz de cálculo en formato Array. De este modo se aceleran los procesos de cálculo al prescindir del objeto rango. Permite, además, realizar una selección de las variables a utilizar en el proceso siguiente redimensionando adecuadamente las matrices. 
+Para cargar los datos al formulario y entrar en el frame de selección de variables es necesario pulsar el botón “cargar datos”. En caso de no existir nombres en las cabeceras la aplicación genera un identificador de la variable.<br>
+Una vez pasadas las variables al listbox, se puede seleccionar aquellas variables de interés por el usuario, o bien desactivar aquellas que no se traten de datos numéricos cuantitativos. El frame incluye un selector de todas / ninguna variable.
+Tras la selección final, mediante el botón “Generar matriz” los datos se almacenan en la matriz gobal de datos para continuar el proceso de segmentación.<br>
+En caso de que existan celdas vacías o con datos tipo “string” se obtendrán mensajes de aviso.
+El módulo de análisis facilita la elección de diferentes opciones de segmentación, incluidos establecer un número determinado de grupos iniciales. Los análisis incluyen varios tipos de criterios de agrupación basados en diferentes medidas de distancias, submétodos de agrupación y dos estrategias de segmentación (similaridad y distancia). </p>
+
+<p>Las opciones de distancias que incluye la aplicación:</p>
+
+<ul>
+<li>  Distancia euclídea</li>
+<li>  Distancia de Mahalanobis</li>
+<li>  Distancia de Manhattan </li>
+<li>  Distancia de Chebyshev</li>
+<li>  Distancias de Makowski
+Para estas distancias pueden elegirse los siguiente métodos:</li>
+<li>  Single linkage</li>
+<li>  Complete linkage</li>
+<li>  WPGMA</li>
+<li>  UPGMA
+La aplicación incluye un checkbos para lanzar el gráfico de dendrograma. Este gráfico se conserva en la misma ubicación que el archivo de datos hasta que se cierra la apliación mediante el botón “cerrar”.
+Paralelamente puede elegirse el número de grupos que se quiere crear de forma supervisada y la opción de cambiar el valor del exponente (p) para el caso de la distancia de Minkowski.</li>
+</ul>
+
+<p>El módulo de salida se compone de un comando para crear una hoja de resultados nueva.</p>
+
+<p>En caso de elegirse la opción “dendrograma” mediante el checkbox, la apliacón lanzará una nueva ventana en al cual se ha cargado una imagen del dendrograma, que incluye:</p>
+
+<ul>
+<li>  Línea de corte según los grupos elegidos</li>
+<li>  Coeficiente cofenético (-1,1) para determinar la calidad de la segmentación.</li>
+</ul>
+
+<p><img src="https://www.dropbox.com/s/14au0y4dgxy7jxp/3.png?dl=0" alt=""></p>
+
+<p>El módulo de salida ofrecerá un reporte de los grupos creados y diferentes gráficos dinámicos que permitan interpretar los resultados. Según el tipo de segmentación elegida (Jerárquico o no Jerárquico el tipo de gráfico será diferente.  </p>
+
+<p><img src="https://www.dropbox.com/s/ra8dnlhj164ylp1/4.png?dl=0" alt=""></p>
+
+<p>Respecto a la clarificación no jerárquica, la aplicación incluye el algoritmo K-medias. En este caso las opciones del algoritmo son:</p>
+
+<ul>
+<li>  Elección de la matriz original para realizar los cálculos</li>
+<li>  Elección de matriz de corelaciones o covarianas</li>
+</ul>
+
+<p>En este caso incluye además las opciones de Convergencia y número de ciclos de cálculo. En este algoritmo se han implementado funciones que mejoran el rendimiento notablemente de los cálculos matriciales.</p>
+
+<p>El gráfico generado mediante k-medias es una imagen cargada en una ventana emergente. Su código incluye la creación de una tabla dinámica.</p>
+
+<p><img src="https://www.dropbox.com/s/7gu8pxpnanfc89s/grafk.gif?dl=0" alt=""></p>
 
 <h3>
 <a id="autores" class="anchor" href="#autores" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Autores:</h3>
 
 <ul>
-<li>Sindy P.<br>
+<li>Sindy<br>
 </li>
 <li>Juan David<br>
 </li>
 <li>Xose<br>
 </li>
 </ul>
-      </section>
 
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/xvilan">xvilan</a> can be found on <a href="https://github.com/xvilan/clusterhelp">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/xvilan/clusterhelp">Análisis Cluster</a> is maintained by <a href="https://github.com/xvilan">xvilan</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
 
-    </div>
+    </section>
 
-    
+  
   </body>
 </html>
